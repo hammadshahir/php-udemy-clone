@@ -5,7 +5,9 @@ class Home extends Controller
 {
     public function index()
     {
-        $this->view('home');
+        $data['title'] = 'Home';
+
+        $this->view('home', $data);
     }
 
     public function edit($id)
