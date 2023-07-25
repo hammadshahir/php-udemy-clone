@@ -15,6 +15,11 @@ class Home extends Controller
         echo "Home Page - Edit".$id;
     }
 
+    public function update($id)
+    {
+        echo "Home Page - Update".$id;
+    }
+
     public function delete($id)
     {
         echo "Home Page - Delete".$id;

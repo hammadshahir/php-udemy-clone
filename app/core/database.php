@@ -42,12 +42,17 @@ class Database
         $query = "
             CREATE TABLE IF NOT EXISTS `users` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
+            `firstName` varchar(50) NOT NULL,
+            `lastName` varchar(50) NOT NULL,
             `email` varchar(100) NOT NULL,
             `password` varchar(255) NOT NULL,
-            `create_date` date DEFAULT NULL,
+            `role` varchar(20) NOT NULL,
+            `createDate` date DEFAULT NULL,
             PRIMARY KEY (`id`),
             KEY `email` (`email`),
-            KEY `create_date` (`create_date`)
+            KEY `firstName` (`firstName`),
+            KEY `lastName` (`lastName`),
+            KEY `createDate` (`createDate`)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
         ";
         $this->query($query);

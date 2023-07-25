@@ -9,7 +9,7 @@
  *  app info
  */
 
- define('APP_NAME', 'Udemy Clone App');
+ define('APP_NAME', 'Udemy Clone');
  define('APP_DESC', 'Free Tuotials For Everybody');
 
 if($_SERVER['SERVER_NAME'] == 'localhost')
