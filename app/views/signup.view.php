@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Register - <?=APP_NAME?></title>
+  <title> Register - <?=APP_NAME?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,16 +39,17 @@
 
 <body>
 
+
   <main>
     <div class="container">
 
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-2">
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
+              <div class="d-flex justify-content-center py-2">
+                <a href="<?=ROOT?>" class="logo d-flex align-items-center w-auto">
                   <img src="<?=ROOT?>/niceadmin/assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block"><?=APP_NAME?></span>
                 </a>
@@ -63,66 +64,61 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form method="POST" class="row g-3 needs-validation" novalidate>
-                    
-                  <div class="col-6">
-                      <label for="firstName" class="form-label">First Name:</label>
-                      <input value="<?=setValue('firstName') ?>" type="text" name="firstName" class="form-control <?=!empty($errors['firstName']) ? 'border-danger' : ''?>" id="firstName" required>
+                  <form method="post" class="row g-3 needs-validation" novalidate>
+                    <div class="col-6">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input value="<?= setValue('firstName')?>" type="text" name="firstName" class="form-control <?=!empty($errors['firstName']) ? 'border-danger':'';?>" id="yourName" required1>
                       <div class="invalid-feedback">Please, enter your first name!</div>
 
                       <?php if(!empty($errors['firstName'])):?>
-                          <small class="text-danger"><?=$errors['firstName']?></small>
-                        <?php endif;?>
+                        <small class="text-danger"><?=$errors['firstName']?></small>
+                      <?php endif;?>
+
                     </div>
-                    
                     <div class="col-6">
-                      <label for="lastName" class="form-label">Last Name:</label>
-                      <input value="<?=setValue('lastName') ?>" type="text" name="lastName" class="form-control <?=!empty($errors['lastName']) ? 'border-danger' : ''?>" id="lastName" required>
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input value="<?= setValue('lastName')?>" type="text" name="lastName" class="form-control <?=!empty($errors['lastName']) ? 'border-danger':'';?>" id="yourName2" required1>
                       <div class="invalid-feedback">Please, enter your last name!</div>
 
                       <?php if(!empty($errors['lastName'])):?>
-                          <small class="text-danger"><?=$errors['lastName']?></small>
-                        <?php endif;?>
-                    </div>
-                    
-                    <div class="col-12">
-                      <label for="email" class="form-label">Email:</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input value="<?=setValue('email') ?>" type="text" name="email" class="form-control <?=!empty($errors['email']) ? 'border-danger' : ''?>" id="email" required>
-                        <div class="invalid-feedback">Please enter a valid Email adddress!</div>
-                        
-                        <?php if(!empty($errors['email'])):?>
-                          <small class="text-danger"><?=$errors['email']?></small>
-                        <?php endif;?>
-                      </div>
-                    </div>
-                    
-                    <div class="col-6">
-                      <label for="password" class="form-label">Password:</label>
-                      <input value="<?=setValue('password') ?>" type="password" name="password" class="form-control <?=!empty($errors['password']) ? 'border-danger' : ''?>" id="password" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-
-                      <?php if(!empty($errors['password'])):?>
-                          <small class="text-danger"><?=$errors['password']?></small>
-                        <?php endif;?>
-                    </div>
-                    <div class="col-6">
-                      <label for="confirmPassword" class="form-label">Confirm Password:</label>
-                      <input value="<?=setValue('confirmPassword'); ?>" type="password" name="confirmPassword" class="form-control <?=!empty($errors['confirmPassword']) ? 'border-danger' : ''?>" id="confirmPassword" required>
-                      <div class="invalid-feedback">Please confirm your password!</div>
-
-                      <?php if(!empty($errors['password'])):?>
-                          <small class="text-danger"><?=$errors['password']?></small>
+                        <small class="text-danger"><?=$errors['lastName']?></small>
                       <?php endif;?>
+
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourEmail" class="form-label">Your Email</label>
+                      <input value="<?= setValue('email')?>" type="email" name="email" class="form-control <?=!empty($errors['email']) ? 'border-danger':'';?>" id="yourEmail" required1>
+                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      
+                      <?php if(!empty($errors['email'])):?>
+                        <small class="text-danger"><?=$errors['email']?></small>
+                      <?php endif;?>
+
+                    </div>
+ 
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Password</label>
+                      <input value="<?= setValue('password')?>" type="password" name="password" class="form-control <?=!empty($errors['password']) ? 'border-danger':'';?>" id="yourPassword" required1>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Retype Password</label>
+                      <input value="<?= setValue('confirmPassword')?>" type="password" name="confirmPassword" class="form-control" id="yourPassword" required1>
+                      <div class="invalid-feedback">Please retype your password!</div>
+
+                      <?php if(!empty($errors['password'])):?>
+                        <small class="text-danger"><?=$errors['password']?></small>
+                      <?php endif;?>
+
                     </div>
 
                     <div class="col-12">
                       <div class="form-check">
-                        <input <?=setValue('terms') ? 'checked':''; ?> class="form-check-input" name="terms" type="checkbox" value="1" id="terms" required>
-                        <label class="form-check-label" for="terms">I agree and accept the <a href="#">terms and conditions</a></label>
+                        <input <?= setValue('terms') ? 'checked':''; ?> class="form-check-input" name="terms" type="checkbox" value="1" id="acceptTerms" required1>
+                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
                         <div class="invalid-feedback">You must agree before submitting.</div>
-                        
+
                         <?php if(!empty($errors['terms'])):?>
                           <small class="text-danger"><?=$errors['terms']?></small>
                         <?php endif;?>

@@ -1,14 +1,36 @@
-<?php
-/***
- * Login
+<?php 
+
+/**
+ * Login class
  */
+class Login extends Controller
+{
+	public function index()
+	{
+		$data['errors'] = [];
 
- class Login extends Controller
- {
-    function index()
-    {
-        $data['title'] = 'Login';
-        return $this->view('login', $data);
-    }
- }
+		$data['title'] = "Login";
+		$user = new User();
 
+		if($_SERVER['REQUEST_METHOD'] == "POST")
+		{
+			// Validate
+			$row = $user->first([
+				'email'=>$_POST['email']
+			]);
+
+			if($row){
+               
+				if( password_verify($_POST['password'], $row->password))
+				{
+					// Authenticate
+					Auth::authenticate($row);
+
+					redirect('home');
+				}
+			}
+			$data['errors']['email'] = "Wrong email or password";
+		}
+		$this->view('login',$data);
+	}
+}
