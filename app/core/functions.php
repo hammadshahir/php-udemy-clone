@@ -10,10 +10,9 @@ function show($stuff)
 
 function setValue($key)
 {
-    if(!empty($_POST[$key]))
-    {
-        return $key;
-    }
-
-    return '';
+	if(!empty($_POST[$key]))
+	{
+		return $_POST[$key];
+	}
+	return '';
 }

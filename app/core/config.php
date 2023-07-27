@@ -25,6 +25,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
     define('ROOT', 'http://localhost/php-udemy-clone/public');
     
 } else {
-    // Configuration for production server
-    // Not available now, write your own code for implementation.
+    // Configure multiple if statements or cases here for local (workbench, QA and Production)
+    // //root path e.g https://www.yourwebsite.com
+	// define('ROOT', 'http://');
 }
