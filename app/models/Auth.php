@@ -45,4 +45,16 @@ class Auth
 		return false;
 	}
 
+    public static function  __callStatic($funcName, $arg)
+    {
+        $key = str_replace("get", "", $funcName);
+        
+        if(!empty($_SESSION['USER_DATA']->$key)) 
+        {
+            //print_r($key);
+            return $_SESSION['USER_DATA']->$key;
+        }
+       return '';
+    }
+
 }

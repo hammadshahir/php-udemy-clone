@@ -31,18 +31,23 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-
           <li><a href="<?=ROOT?>/about">About</a></li>
           <li><a href="<?=ROOT?>/contact">Contact</a></li>
           <?php if(!Auth::logged_in()):?>
             <li><a href="<?=ROOT?>/login">Login</a></li>
             <li><a href="<?=ROOT?>/signup">Signup</a></li>
           <?php else: ?>
-            <li><a href="<?=ROOT?>/logout">Logout</a></li>
+            <li class="dropdown"><a href="category"><span>Hi, <?= Auth::getfirstName() ?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+              <ul>
+                <li><a href="<?=ROOT ?>/admin">Dashboard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="<?=ROOT?>/logout">Logout</a></li>
+              <ul>
+            </li>
           <?php endif ?>
         </ul>
-      </nav><!-- .navbar -->
-
+      </nav><!-- .navbar -->  
       <div class="position-relative">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
