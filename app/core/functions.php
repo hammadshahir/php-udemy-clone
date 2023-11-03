@@ -16,6 +16,7 @@ function setValue($key)
 	}
 	return '';
 } // End of setValue
+
 function redirect($link)
 {
 	header("Location: ". ROOT."/".$link);
@@ -28,7 +29,7 @@ function message($msg = '',$erase = false)
 	if(!empty($msg))
 	{
 		$_SESSION['message'] = $msg;
-	}else{
+	} else {
 
 		if(!empty($_SESSION['message']))
 		{

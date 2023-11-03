@@ -7,9 +7,11 @@ WORKDIR /var/www/html
 # Install required PHP extensions and enable Apache modules
 RUN docker-php-ext-install pdo pdo_mysql \
     && a2enmod rewrite
+RUN chmod -R 755 /var/www/html
 
 # Copy the contents of the app directory into the container's working directory
 COPY ./app /var/www/app
+COPY public/.htaccess /var/www/html/.htaccess
 
 # Expose port 80 for Apache
 EXPOSE 80

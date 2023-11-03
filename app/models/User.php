@@ -16,7 +16,7 @@ class User extends Model
 		'lastName',
 		'password',
 		'role',
-		'createDate',
+		'createDate', //Only in PHP8 and above we can put comma (,)
 	];
 
 	public function validate($data)
@@ -66,6 +66,26 @@ class User extends Model
 		return false;
 	}
 
-
+	public function insert ($data)
+	{
+		//remove unwanted columns
+		if(!empty($this->allowedColumns))
+		{
+			foreach($data as $key => $value) {
+				if(!in_array($key, $this->allowedColumns)) {
+					unset($data[$key]);
+				}
+			}	
+		}
+		//show($data);
+		$keys = array_keys($data);
+		$values = array_values($data);
+		
+		$query = "INSERT INTO users ";
+		$query .= "(".implode(",", $keys).") VALUES (:".implode(",:", $keys).")";
+		
+		$db = new Database();
+		$db->query($query, $data);	
+	} // End of insert method
 	
-}
+} // End of user class

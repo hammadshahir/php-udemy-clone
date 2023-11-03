@@ -1,18 +1,18 @@
 <?php 
 
-
 /**
  * database class
  */
 class Database
 {
+	// Define the DBDRIVER constant
+	const DBDRIVER = 'mysql';
 	
 	private function connect()
-	{
-		$str = DBDRIVER.":hostname=".DBHOST.";dbname=".DBNAME;
-		return new PDO($str,DBUSER,DBPASS);
-
-	}
+    {
+        $str = self::DBDRIVER . ":host=" . DBHOST . ";dbname=" . DBNAME;
+        return new PDO($str, DBUSER, DBPASS);
+    }
 
 	public function query($query,$data = [],$type = 'object')
 	{

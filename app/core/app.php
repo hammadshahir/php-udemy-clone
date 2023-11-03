@@ -1,5 +1,6 @@
 <?php
-class App {
+class App 
+{
     protected $controller = '_404';
     protected $method = 'index';
     public static $page = '_404';
@@ -10,11 +11,13 @@ class App {
         $fileName = "../app/controllers/".ucfirst($arr[0]).".php";
         if(file_exists($fileName))
         {
+            //if file exists 
             require $fileName;
             $this->controller = $arr[0];
             self::$page = $arr[0];
             unset($arr[0]);
         } else {
+            // if file does not exist, we are calling default controller which is 404
             require "../app/controllers/".$this->controller.".php";
         }
 
