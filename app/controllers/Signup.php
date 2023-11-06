@@ -13,8 +13,6 @@ class Signup extends Controller
 
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
-
-			show($_POST);
 			if($user->validate($_POST))
 			{
                 $_POST['role'] = 'user';
@@ -29,10 +27,8 @@ class Signup extends Controller
 		}
 
 		$data['errors'] = $user->errors;
+		//print_r($data['errors']);
 		$data['title'] = "Signup";
-		
-		// show($_POST);
 		$this->view('signup',$data);
-		
 	}
 }

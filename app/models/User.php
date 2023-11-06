@@ -37,8 +37,8 @@ class User extends Model
 		if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL))
 		{
 			$this->errors['email'] = "Email is not valid";
-		}else
-		if($this->where(['email'=>$data['email']]))
+			
+		}else if($this->where(['email'=>$data['email']]))
 		{
 			$this->errors['email'] = "That email already exists";
 		}
@@ -65,27 +65,5 @@ class User extends Model
 
 		return false;
 	}
-
-	public function insert ($data)
-	{
-		//remove unwanted columns
-		if(!empty($this->allowedColumns))
-		{
-			foreach($data as $key => $value) {
-				if(!in_array($key, $this->allowedColumns)) {
-					unset($data[$key]);
-				}
-			}	
-		}
-		//show($data);
-		$keys = array_keys($data);
-		$values = array_values($data);
-		
-		$query = "INSERT INTO users ";
-		$query .= "(".implode(",", $keys).") VALUES (:".implode(",:", $keys).")";
-		
-		$db = new Database();
-		$db->query($query, $data);	
-	} // End of insert method
 	
 } // End of user class

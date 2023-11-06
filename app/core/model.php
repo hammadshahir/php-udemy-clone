@@ -6,6 +6,7 @@
 class Model extends Database
 {
 	protected $table = "";
+	
 	public function insert($data)
 	{
 		//remove unwanted columns
@@ -46,7 +47,7 @@ class Model extends Database
 		}
 
 		return false;
-	} // End of where
+	} // End of where method
 
     public function first($data)
 	{
@@ -69,5 +70,5 @@ class Model extends Database
 		}
         
 		return false;
-	} // Enbd of first
+	} // Enbd of first method
 }

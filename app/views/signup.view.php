@@ -41,7 +41,6 @@
 
 <body>
 
-
     <main>
         <div class="container">
 
@@ -64,7 +63,8 @@
 
                                     <div class="pt-4 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                                        <p class="text-center small">Enter your personal details to create account</p>
+                                        <p class="text-center small">Enter your personal details to create account
+                                        </p>
                                     </div>
 
                                     <form method="post" class="row g-3 needs-validation" novalidate>
@@ -72,7 +72,7 @@
                                             <label for="firstName" class="form-label">First Name</label>
                                             <input value="<?= setValue('firstName')?>" type="text" name="firstName"
                                                 class="form-control <?=!empty($errors['firstName']) ? 'border-danger':'';?>"
-                                                id="yourName" required1>
+                                                id="firstName" required>
                                             <div class="invalid-feedback">Please, enter your first name!</div>
 
                                             <?php if(!empty($errors['firstName'])):?>
@@ -84,7 +84,7 @@
                                             <label for="lastName" class="form-label">Last Name</label>
                                             <input value="<?= setValue('lastName')?>" type="text" name="lastName"
                                                 class="form-control <?=!empty($errors['lastName']) ? 'border-danger':'';?>"
-                                                id="yourName2" required1>
+                                                id="lastName" required>
                                             <div class="invalid-feedback">Please, enter your last name!</div>
 
                                             <?php if(!empty($errors['lastName'])):?>
@@ -94,15 +94,16 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <label for="yourEmail" class="form-label">Your Email</label>
+                                            <label for="email" class="form-label">Your Email</label>
                                             <input value="<?= setValue('email')?>" type="email" name="email"
                                                 class="form-control <?=!empty($errors['email']) ? 'border-danger':'';?>"
-                                                id="yourEmail" required1>
-                                            <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                                                id="email" required>
+                                            <div class="invalid-feedback">Please enter a valid Email adddress!
 
-                                            <?php if(!empty($errors['email'])):?>
-                                            <small class="text-danger"><?=$errors['email']?></small>
-                                            <?php endif;?>
+                                                <?php if (!empty($data['errors']['email'])): ?>
+                                                <small class="text-danger"><?= $data['errors']['email'] ?></small>
+                                                <?php endif; ?>
+                                            </div>
 
                                         </div>
 
@@ -129,9 +130,11 @@
                                             <div class="form-check">
                                                 <input <?= setValue('terms') ? 'checked':''; ?> class="form-check-input"
                                                     name="terms" type="checkbox" value="1" id="acceptTerms" required1>
-                                                <label class="form-check-label" for="acceptTerms">I agree and accept the
+                                                <label class="form-check-label" for="acceptTerms">I agree and accept
+                                                    the
                                                     <a href="#">terms and conditions</a></label>
-                                                <div class="invalid-feedback">You must agree before submitting.</div>
+                                                <div class="invalid-feedback">You must agree before submitting.
+                                                </div>
 
                                                 <?php if(!empty($errors['terms'])):?>
                                                 <small class="text-danger"><?=$errors['terms']?></small>
@@ -140,7 +143,8 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                            <button class="btn btn-primary w-100" type="submit">Create
+                                                Account</button>
                                         </div>
                                         <div class="col-12">
                                             <p class="small mb-0">Already have an account? <a href="<?=ROOT?>/login">Log
